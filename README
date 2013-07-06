@@ -1,1 +1,20 @@
 Treasure Map
+
+============
+
+Everything you need to set up a mapping project on a clean Ubuntu instance.
+
+dependencies.sh:
+  Installs PostGIS, postgreSQL and unzip
+  Creates TreasureMap database and makes it geospatially enabled
+  
+get_data.sh:
+  Connects to AEC, downloads polling place and senate voting data
+  
+prep_data.sh:
+  Unzips the files, removes headers, runs polling_places.sql
+  
+polling_places.sql:
+  Creates tables polling_places, senate_votes and populates with polling/voting data
+  Converts latitude/longitude into a PostGIS Point geometry
+  Creates table tmp_pp_distance with the distance to nearest neighbour for each polling place
